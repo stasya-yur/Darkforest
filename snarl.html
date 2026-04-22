@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkForest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="snarl.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><div class="header-title">Темний Ліс</div></a>
+        <a href="snarl.html"><div class="block active">Плутанина</div></a>
+        <a href="abbs.html"><div class="block">Абревіатури</div></a>
+        <a href="https://kahoot.com/"><div class="block">Kahoot!</div></a>
+        <a href="https://garticphone.com/uk"><div class="block">Gartic Phone</div></a>
+        <a href="https://smashkarts.io/"><div class="block">Smash Carts</div></a>
+        <a href="https://makeitmeme.com/"><div class="block">Make It Meme</div></a>
+    </header>
+    <main>
+        <div class="game-container">
+            <div class="game-main">
+                <div class="word">Слово</div>
+                <div class="buttons">
+                    <button class="open-word">Показати слово</button>
+                    <button class="next-word">Наступне слово</button>
+                </div>
+            </div>
+            <div class="game-settings">
+                <div class="setting-section">
+                    <div class="options-group">
+                        <input type="radio" name="level" id="low" value="easy" checked>
+                        <label for="low">Початківці</label>
+            
+                        <input type="radio" name="level" id="mid" value="medium">
+                        <label for="mid">Середньо</label>
+            
+                        <input type="radio" name="level" id="high" value="hard">
+                        <label for="high">Складно</label>
+                    </div>
+                </div>
+            
+                <div class="setting-section">
+                    <div class="options-group">
+                        <input type="checkbox" name="theme" id="code" value="programming">
+                        <label for="code">Програмування</label>
+            
+                        <input type="checkbox" name="theme" id="games" value="games">
+                        <label for="games">Ігри</label>
+            
+                        <input type="checkbox" name="theme" id="school" value="school">
+                        <label for="school">Школа</label>
+            
+                        <input type="checkbox" name="theme" id="food" value="food">
+                        <label for="food">Їжа</label>
+            
+                        <input type="checkbox" name="theme" id="animals" value="animals">
+                        <label for="animals">Тварини</label>
+            
+                        <input type="checkbox" name="theme" id="cartoons" value="cartoons">
+                        <label for="cartoons">Мультфільми</label>
+                    </div>
+                </div>
+                <button class="cancel">Скинути прогрес</button>
+            </div>
+        </div>
+    </main>
+    <script src="snarl.js"></script>
+</body>
+</html>

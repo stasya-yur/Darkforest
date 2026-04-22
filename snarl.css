@@ -1,0 +1,129 @@
+/* Основная игровая зона */
+main {
+    background: radial-gradient(circle at center, var(--swamp) 0%, var(--deep-forest) 100%);
+    display: flex;
+}
+
+.game-container {
+    display: flex;
+    width: 100%;
+}
+
+.game-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.word {
+    font-size: clamp(40px, 8vw, 90px); /* Адаптивный размер */
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: var(--chanterelle);
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: transform 0.1s active;
+}
+
+.open-word, .next-word {
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+.open-word {
+    background: var(--white-mushroom);
+    color: #2e2721;
+}
+
+.next-word {
+    background: var(--foliage);
+    color: var(--text-light);
+}
+
+button:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+}
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 5px 15px #161616;
+}
+
+/* Настройки (Правая колонка внутри main) */
+.game-settings {
+    width: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.options-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Кастомные чекбоксы и радио */
+.options-group input {
+    display: none;
+}
+
+.options-group label {
+    padding: 10px 15px;
+    background: var(--swamp);
+    border: 1px solid var(--moss);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.options-group label:hover {
+    border-color: var(--chanterelle);
+}
+
+/* Стиль для выбранной сложности (Радио) */
+input[name="level"]:checked + label {
+    background: var(--white-mushroom);
+    color: #2e2721;
+    border-color: #d4a373;
+}
+
+/* Стиль для выбранных тем (Чекбоксы) */
+input[name="theme"]:checked + label {
+    background: var(--foliage);
+    color: rgb(255, 255, 255);
+    border-color: #4a5d23;
+}
+
+.cancel {
+    margin: auto auto 0;
+    padding: 12px;
+    width: 80%;
+    background: transparent;
+    border: 1px dashed var(--fly-agaric);
+    color: var(--fly-agaric);
+}
+
+.cancel:hover {
+    background: var(--fly-agaric);
+    color: white;
+}

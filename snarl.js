@@ -481,7 +481,7 @@ function renderWord(word, level) {
         for (let char of scrambledText) {
             // Шукаємо першу букву ОРИГІНАЛЬНОГО слова
             if (!highlighted && char.toLowerCase() === firstLetterChar) {
-                htmlResult += `<span style="color: var(--accent-warn)">${char}</span>`;
+                htmlResult += `<span style="color: #a42424">${char}</span>`;
                 highlighted = true; 
             } else {
                 htmlResult += char;
@@ -522,4 +522,4 @@ btnReset.addEventListener('click', () => {
 });
 
 // Инициализация при первом запуске
-wordDisplay.textContent = "Натисніть 'Наступне слово'";
+wordDisplay.textContent = "Букви заплуталися!";

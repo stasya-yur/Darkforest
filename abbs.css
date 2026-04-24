@@ -39,19 +39,9 @@ button {
     font-weight: 700;
     text-transform: uppercase;
     transition: transform 0.1s active;
-}
-
-.open-word, .next-word {
+    
     padding: 15px 30px;
     font-size: 18px;
-}
-
-.open-word {
-    background: var(--white-mushroom);
-    color: #2e2721;
-}
-
-.next-word {
     background: var(--foliage);
     color: var(--text-light);
 }
@@ -106,25 +96,4 @@ input[name="level"]:checked + label {
     background: var(--white-mushroom);
     color: #2e2721;
     border-color: #d4a373;
-}
-
-/* Стиль для выбранных тем (Чекбоксы) */
-input[name="theme"]:checked + label {
-    background: var(--foliage);
-    color: rgb(255, 255, 255);
-    border-color: #4a5d23;
-}
-
-.cancel {
-    margin: auto auto 0;
-    padding: 12px;
-    width: 80%;
-    background: transparent;
-    border: 1px dashed var(--fly-agaric);
-    color: var(--fly-agaric);
-}
-
-.cancel:hover {
-    background: var(--fly-agaric);
-    color: white;
 }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkForest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mysteries.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><div class="header-title">Темний Ліс</div></a>
+        <a href="snarl.html"><div class="block">Плутанина</div></a>
+        <a href="abbs.html"><div class="block">Абревіатури</div></a>
+        <a href="mysteries.html"><div class="block active">Загадки омуту</div></a>
+        <a href="https://kahoot.com/"><div class="block">Kahoot!</div></a>
+        <a href="https://garticphone.com/uk"><div class="block">Gartic Phone</div></a>
+        <a href="https://smashkarts.io/"><div class="block">Smash Carts</div></a>
+        <a href="https://makeitmeme.com/"><div class="block">Make It Meme</div></a>
+    </header>
+    <main>
+                    <div class="game-container">
+                        <div class="game-main">
+                            <div id="word-display" class="word">ОЧІКУВАННЯ...</div>
+                            <div class="buttons">
+                                <button id="next-word-btn" class="next-word">Наступне слово</button>
+                            </div>
+                            <div class="input-area">
+                                <input type="text" id="player-input" placeholder="Введіть слово..." autocomplete="off">
+                            </div>
+                        </div>
+                
+                        <div class="game-settings">
+                            <div class="options-group">
+                                <div class="timer-label">ЧАС:</div>
+                                <div id="timer">01:00</div>
+                            </div>
+                
+                            <!-- Налаштування таймера -->
+                            <div class="options-group">
+                                <div class="timer-label">ОБРАТИ ЧАС (СЕК):</div>
+                                <div class="time-presets">
+                                    <input type="radio" name="time-limit" id="t60" value="60" checked>
+                                    <label for="t60">60</label>
+                                    
+                                    <input type="radio" name="time-limit" id="t90" value="90">
+                                    <label for="t90">90</label>
+                                    
+                                    <input type="radio" name="time-limit" id="t120" value="120">
+                                    <label for="t120">120</label>
+                                </div>
+                            </div>
+                
+                            <div class="options-group scrollable">
+                                <div class="list-label">ЗНАЙДЕНІ СЛОВА (<span id="word-count">0</span>):</div>
+                                <div id="words-list" class="words-column"></div>
+                            </div>
+                        </div>
+                    </div>
+    </main>
+    <script src="mysteries.js"></script>
+</body>
+</html>

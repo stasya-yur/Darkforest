@@ -1,0 +1,169 @@
+/* Основна ігрова зона */
+main {
+    background: radial-gradient(circle at center, var(--swamp) 0%, var(--deep-forest) 100%);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    display: flex;
+    width: 100%;
+
+}
+
+.game-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    margin: 0 20%;
+}
+
+.word {
+    font-size: clamp(40px, 8vw, 90px);
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: var(--chanterelle);
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(233, 196, 106, 0.2);
+}
+
+.input-area {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#player-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--moss);
+    padding: 15px;
+    color: var(--text-light);
+    font-family: inherit;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 6px;
+    outline: none;
+}
+
+#player-input:focus {
+    border-color: var(--chanterelle);
+}
+
+/* Налаштування (Права колонка) */
+.game-settings {
+    width: 300px;
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 1px solid var(--moss);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#timer {
+    font-size: 48px;
+    color: var(--chanterelle);
+    font-weight: 700;
+    text-align: center;
+}
+
+.timer-label, .list-label {
+    font-size: 14px;
+    color: var(--foliage);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.words-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    max-height: 50vh;
+    padding-right: 10px;
+}
+
+/* Кастомний скролл */
+.words-column::-webkit-scrollbar { width: 5px; }
+.words-column::-webkit-scrollbar-thumb { background: var(--moss); }
+
+.found-word-item {
+    background: var(--swamp);
+    border: 1px solid var(--moss);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Кнопки */
+.buttons { display: flex; gap: 20px; }
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.next-word {
+    padding: 15px 30px;
+    font-size: 18px;
+    background: var(--foliage);
+    color: var(--text-light);
+}
+
+.cancel {
+    margin: auto auto 0;
+    padding: 12px;
+    width: 100%;
+    background: transparent;
+    border: 1px dashed var(--fly-agaric);
+    color: var(--fly-agaric);
+}
+
+button:hover { filter: brightness(1.2); transform: translateY(-2px); }
+button:active { transform: translateY(2px); }
+/* Стилізація вибору часу */
+.time-presets {
+    display: flex;
+    gap: 10px;
+}
+
+.time-presets input { display: none; }
+
+.time-presets label {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    background: var(--swamp);
+    border: 1px solid var(--moss);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.time-presets input:checked + label {
+    background: var(--foliage);
+    border-color: var(--chanterelle);
+    color: white;
+}
+
+/* Анімація помилки */
+.error-shake {
+    animation: shake 0.4s ease-in-out;
+    border-color: var(--fly-agaric) !important;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}

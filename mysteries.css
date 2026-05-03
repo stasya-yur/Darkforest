@@ -19,7 +19,6 @@ main {
     justify-content: center;
     align-items: center;
     padding: 40px;
-    margin: 0 20%;
 }
 
 .word {
@@ -82,11 +81,11 @@ main {
 
 .words-column {
     display: flex;
-    flex-direction: column;
     gap: 8px;
     overflow-y: auto;
     max-height: 50vh;
     padding-right: 10px;
+    flex-wrap: wrap;
 }
 
 /* Кастомний скролл */

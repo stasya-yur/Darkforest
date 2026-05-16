@@ -12,16 +12,14 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><div class="header-title">Темний Ліс</div></a>
-        <a href="snarl.html"><div class="block">Плутанина</div></a>
-        <a href="abbs.html"><div class="block">Абревіатури</div></a>
-        <a href="mysteries.html"><div class="block active">Загадки омуту</div></a>
-        <a href="https://kahoot.com/"><div class="block">Kahoot!</div></a>
-        <a href="https://garticphone.com/uk"><div class="block">Gartic Phone</div></a>
-        <a href="https://smashkarts.io/"><div class="block">Smash Carts</div></a>
-        <a href="https://makeitmeme.com/"><div class="block">Make It Meme</div></a>
     </header>
     <main>
+        <div class="help-trigger" style="position: fixed; top:2%; left:75%;">?
+            <div class="help-tooltip">
+                <h3>Правила гри:</h3>
+                <p>Завдання гравців — скласти з літер цього слова якнайбільше інших слів протягом вибраного часу.</p>
+            </div>
+        </div>
                     <div class="game-container">
                         <div class="game-main">
                             <div id="word-display" class="word">ОЧІКУВАННЯ...</div>
@@ -62,5 +60,7 @@
                     </div>
     </main>
     <script src="mysteries.js"></script>
+    
+    <script src="menu.js"></script>
 </body>
 </html>

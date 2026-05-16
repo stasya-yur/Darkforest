@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жаб'яче бажання</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="wish.css">
+</head>
+<body>
+    
+    <header></header> <!-- Меню -->
+
+    <div class="help-trigger" style="position: fixed; top:2%; left:95%;">?
+        <div class="help-tooltip">
+            <h3>Правила гри:</h3>
+            <p>1. Ведучий генерує випадкове бажання або пише своє.</p>
+            <p>2. Бажання одразу з'являється на великому екрані.</p>
+            <p>3. Ведучий запускає таймер на 30 секунд.</p>
+            <p>4. Завдання гравців — вигадати логічну або смішну причину, чому ведучому НЕ варто цього робити.</p>
+        </div>
+    </div>
+
+    <main class="wish-screen-main">
+        <div class="wish-container-full">
+            
+            <!-- Головна зона для дітей (чистий текст, ніякого приховування) -->
+            <div class="wish-display-zone">
+                <div class="toad-avatar" id="toad">🐸</div>
+                <div id="wish-output" class="wish-main-text">НАТИСНІТЬ "ВИПАДКОВЕ БАЖАННЯ", ЩОБ ПОЧАТИ ГРУ</div>
+                <div id="timer-display" class="wish-timer">30</div>
+            </div>
+            
+            <!-- Панель керування ведучого -->
+            <div class="wish-control-panel">
+                <div class="wish-input-wrapper">
+                    <!-- Тепер це звичайне відкрите текстове поле -->
+                    <input type="text" id="wish-input" placeholder="Введіть власне бажання або замініть випадковим..." autocomplete="off">
+                </div>
+                
+                <!-- Шукай цей блок кнопок у своєму wish.html і заміни його -->
+                <div class="wish-action-buttons">
+                    <button id="random-wish-btn" class="btn-wish btn-wish-secondary">Випадкове бажання</button>
+                    <button id="start-timer-btn" class="btn-wish btn-wish-primary">Час пішов!</button>
+                    <button id="stop-timer-btn" class="btn-wish btn-wish-stop" disabled>Стоп</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="menu.js"></script>
+    <script>
+        // Оновлений скрипт гри
+                const wishInput = document.getElementById('wish-input');
+                const randomWishBtn = document.getElementById('random-wish-btn');
+                const startTimerBtn = document.getElementById('start-timer-btn');
+                const stopTimerBtn = document.getElementById('stop-timer-btn');
+                const timerDisplay = document.getElementById('timer-display');
+                const wishOutput = document.getElementById('wish-output');
+                const toad = document.getElementById('toad');
+
+                let timerInterval = null;
+
+                // Банк бажань залишається тим самим (код скорочено для зручності)
+                const wishesBank = [
+                    "Я хочу прогуляти наступний урок", "Я хочу з'їсти лимон цілим і не поморщитися", "Я хочу купити 10 пачок чіпсів на всі гроші", "Я хочу видалити свій акаунт у ТікТок", "Я хочу підійти до директора і дати йому п'ять",
+                    "Я хочу пофарбувати волосся в яскраво-зелений колір", "Я хочу цілий тиждень не робити домашку", "Я хочу стати старостою класу", "Я хочу роздати всі свої гроші друзям", "Я хочу заснути прямо на парті",
+                    "Я хочу завести домашню ручну змію", "Я хочу вистригти собі чолку самостійно", "Я хочу викинути свій телефон у вікно", "Я хочу з'їсти піцу разом із коробкою", "Я хочу кататися на скейті по коридорах школи",
+                    "Я хочу віддати свій обід першому ліпшому однокласнику", "Я хочу перевдягнутися в костюм гігантського банана", "Я хочу цілий день мовчати і спілкуватися лише жестами", "Я хочу прожити місяць без інтернету", "Я хочу почати стрімити, як я роблю математику",
+                    "Я хочу викликати на батл з брейк-дансу вчителя фізкультури", "Я хочу цілу ніч грати в комп'ютерні ігри", "Я хочу помінятися одягом з другом на один день", "Я хочу залізти на дерево на шкільному подвір'ї", "Я хочу з'їсти ложку гострого соусу чилі",
+                    "Я хочу вивчити напам'ять увесь словник", "Я хочу купувати речі лише рожевого кольору", "Я хочу ходити в школу задом наперед", "Я хочу стать професійним гравцем у крестики-нолики", "Я хочу намалювати вуса маркером на обличчі",
+                    "Я хочу підірвати хлопавку посеред уроку", "Я хочу замінити вчителя інформатики", "Я хочу зняти тренд у ТікТок прямо зараз", "Я хочу записатися на балет", "Я хочу стрибнути в басейн у звичайному одязі",
+                    "Я хочу цілий день їсти лише солодку вату", "Я хочу купити кросівки на три розміри більші", "Я хочу вивчити мову жестів, щоб таємно підказувати на контрольних", "Я хочу влаштувати подушковий бій у класі", "Я хочу подарувати кактус найкращому другу",
+                    "Я хочу прожити тиждень на безлюдному острові", "Я хочу навчитись ходити на руках", "Я хочу запізнитися на урок на 35 хвилин", "Я хочу голосно заспівати посеред їдальні", "Я хочу розіслати всім вчителям мем у вайбері",
+                    "Я хочу ходити взимку без шапки", "Я хочу спробувати спати на підлозі", "Я хочу дивитися мультики для трирічних дітей цілий день", "Я хочу написати контрольну лівою рукою (якщо я правша)", "Я хочу виграти мільйон гривень і витратити їх на жуйки"
+                ];
+
+                // Функція повної зупинки анімацій та таймера
+                function resetRoundEffects() {
+                    clearInterval(timerInterval);
+                    toad.classList.remove('active-round'); // Прибираємо підсвітку та стрибки
+                    stopTimerBtn.disabled = true;
+                    startTimerBtn.disabled = false;
+                }
+
+                // Генерація випадкового бажання
+                randomWishBtn.addEventListener('click', () => {
+                    resetRoundEffects();
+                    timerDisplay.textContent = "30";
+                    timerDisplay.classList.remove('danger');
+
+                    const randomWish = wishesBank[Math.floor(Math.random() * wishesBank.length)];
+                    wishInput.value = randomWish;
+                    wishOutput.textContent = randomWish.toUpperCase();
+                });
+
+                // Ручне введення
+                wishInput.addEventListener('input', () => {
+                    if (wishInput.value.trim() !== "") {
+                        wishOutput.textContent = wishInput.value.toUpperCase();
+                    } else {
+                        wishOutput.textContent = 'ВВЕДІТЬ АБО ОБЕРІТЬ БАЖАННЯ';
+                    }
+                });
+
+                // Кнопка "Час пішов!"
+                startTimerBtn.addEventListener('click', () => {
+                    if (wishInput.value.trim() === "") return;
+
+                    clearInterval(timerInterval);
+                    let timeLeft = 30;
+                    timerDisplay.textContent = timeLeft;
+                    timerDisplay.classList.remove('danger');
+                    
+                    // Вмикаємо жабі екшен: вона стрибає і світиться
+                    toad.classList.add('active-round');
+                    
+                    startTimerBtn.disabled = true;
+                    stopTimerBtn.disabled = false;
+
+                    timerInterval = setInterval(() => {
+                        timeLeft--;
+                        timerDisplay.textContent = timeLeft;
+
+                        if (timeLeft <= 10) {
+                            timerDisplay.classList.add('danger');
+                        }
+
+                        if (timeLeft <= 0) {
+                            resetRoundEffects();
+                            wishOutput.textContent = "ЧАС ВИЙШОВ! ЖАБА РОБИТЬ ЦЕ!";
+                        }
+                    }, 1000);
+                });
+
+                // Кнопка "Стоп"
+                stopTimerBtn.addEventListener('click', () => {
+                    resetRoundEffects();
+                    wishOutput.textContent = "РАУНД ЗУПИНЕНО ВЕДУЧИМ!";
+                });
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+/* Повністю плоский темний фон без неону та градієнтів */
+.wish-screen-main {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    background: #141d16; /* Просто рівний темний болотяний колір */
+    font-family: 'Iosevka Charon', monospace;
+}
+
+.wish-container-full {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* Демонстраційна зона: плоска, без внутрішніх тіней та свічення */
+.wish-display-zone {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Жаба статична за замовчуванням */
+.toad-avatar {
+    font-size: 90px;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+/* Анімація вмикається ТІЛЬКИ за командою скрипту під час таймера */
+.toad-avatar.jumping {
+    animation: bounceToad 0.6s infinite alternate ease-in-out;
+}
+
+@keyframes bounceToad {
+    from { transform: translateY(0); }
+    to { transform: translateY(-15px); }
+}
+
+/* Головний текст бажання — величезний, чіткий, без тіней */
+.wish-main-text {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--white-mushroom);
+    max-width: 90%;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+/* Плоский таймер */
+.wish-timer {
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--chanterelle); /* Чистий зелений колір */
+    background: #1a261c;
+    padding: 10px 40px;
+    border-radius: 8px;
+    border: 2px solid #233325;
+}
+
+/* Коли лишилося мало часу (без пульсації екрана, просто зміна кольору) */
+.wish-timer.danger {
+    color: var(--fly-agaric);
+    border-color: var(--fly-agaric);
+}
+
+/* Панель керування ведучого */
+.wish-control-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #1a261c;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #233325;
+}
+
+/* Відкрите поле вводу */
+.wish-input-wrapper input {
+    width: 100%;
+    background: #0d140e;
+    border: 1px solid #233325;
+    color: var(--text-light);
+    padding: 15px 20px;
+    font-family: inherit;
+    font-size: 18px;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.wish-input-wrapper input:focus {
+    border-color: var(--foliage);
+}
+
+/* Кнопки дій */
+.wish-action-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-wish {
+    flex: 1;
+    border: none;
+    padding: 16px;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.btn-wish-primary {
+    background: var(--foliage);
+    color: #2d3125;
+}
+
+.btn-wish-secondary {
+    background: var(--white-mushroom);
+    color: #2e2721;
+}
+
+.btn-wish:active {
+    transform: translateY(1px);
+}
+/* Стиль для кнопки Стоп */
+.btn-wish-stop {
+    background: var(--fly-agaric); /* Твій стандартний колір мухомора/червоний */
+    color: #ffffff;
+}
+
+.btn-wish-stop:disabled {
+    background: #572222;
+    color: #664444;
+    cursor: not-allowed;
+}
+
+/* Стан жаби під час активного раунду (Тільки тоді вона світиться та рухається!) */
+.toad-avatar.active-round {
+    filter: drop-shadow(0 0 25px #7d9e3c); /* Плоске неонове забарвлення чисто навколо емодзі */
+    animation: bounceToad 0.6s infinite alternate ease-in-out;
+}

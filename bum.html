@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkForest - Ягідний бум</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем отдельный файл стилей для этой игры -->
+    <link rel="stylesheet" href="bum.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><div class="header-title">Темний Ліс</div></a>
+        <a href="snarl.html"><div class="block">Плутанина</div></a>
+        <a href="abbs.html"><div class="block">Абревіатури</div></a>
+        <a href="bum.html"><div class="block active">Ягідний бум</div></a>
+        <a href="https://kahoot.com/"><div class="block">Kahoot!</div></a>
+        <a href="https://garticphone.com/uk"><div class="block">Gartic Phone</div></a>
+        <a href="https://smashkarts.io/"><div class="block">Smash Carts</div></a>
+        <a href="https://makeitmeme.com/"><div class="block">Make It Meme</div></a>
+    </header>
+    
+    <main>
+        <div class="game-container layout-bum">
+            <!-- Ліва частина: Блокнот із 10 інпутами -->
+            <div class="game-main">
+                <div class="notebook-grid">
+                    <!-- 10 пронумерованих полів -->
+                    <div class="input-row"><span class="num">1</span><input type="text" placeholder="1" autocomplete="off"></div>
+                    <div class="input-row"><span class="num">2</span><input type="text" placeholder="2" autocomplete="off"></div>
+                    <div class="input-row"><span class="num">3</span><input type="text" placeholder="3" autocomplete="off"></div>
+                    <div class="input-row"><span class="num">4</span><input type="text" placeholder="4" autocomplete="off"></div>
+                    <div class="input-row"><span class="num">5</span><input type="text" placeholder="5" autocomplete="off"></div>
+                    <div class="input-row"><span class="num">6</span><input type="text" placeholder="6" autocomplete="off"></div>
+                    <div class="input-row"><span class="num">7</span><input type="text" placeholder="7" autocomplete="off"></div>
+                    <div class="input-row"><span class="num">8</span><input type="text" placeholder="8" autocomplete="off"></div>
+                    <div class="input-row"><span class="num">9</span><input type="text" placeholder="9" autocomplete="off"></div>
+                    <div class="input-row"><span class="num">10</span><input type="text" placeholder="10" autocomplete="off"></div>
+                </div>
+                <button id="clear-notebook" class="cancel">Очистити блокнот</button>
+            </div>
+
+            <!-- Права частина: Кнопка допомоги з підказкою -->
+            <div class="game-sidebar">
+                <div class="help-trigger">?
+                    <div class="help-tooltip">
+                        <h3>Правила гри:</h3>
+                        <p>1. Гравці сідають у коло і по черзі рахують від 1 до 10.</p>
+                        <p>2. На кожному новому колі одне з чисел замінюється на будь-яке кодове слово (наприклад, замість "3" кажуть "полуниця").</p>
+                        <p>3. Наступний гравець має сказати: 1, 2, полуниця, 4...</p>
+                        <p>4. Хто помиляється — вибуває! Цей блокнот допоможе ведучому записувати замінені слова.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('clear-notebook').addEventListener('click', () => {
+            document.querySelectorAll('.input-row input').forEach(input => input.value = '');
+        });
+    </script>
+</body>
+</html>

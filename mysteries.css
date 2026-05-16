@@ -167,3 +167,139 @@ button:active { transform: translateY(2px); }
     25% { transform: translateX(-10px); }
     75% { transform: translateX(10px); }
 }
+
+/* Полноэкранный режим для Таємниць Хащі */
+.full-screen-main {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    background: radial-gradient(circle at center, var(--swamp) 0%, var(--deep-forest) 100%);
+}
+
+.layout-secrets-full {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    padding: 60px;
+    box-sizing: border-box;
+}
+
+/* Огромная демонстрационная зона для игроков */
+.output-text-full {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(28px, 4.5vw, 65px); /* Адаптивный огромный размер букв */
+    color: var(--chanterelle);
+    font-weight: 700;
+    text-align: center;
+    word-break: break-all;
+    line-height: 1.6;
+    letter-spacing: 2px;
+    padding: 40px;
+    text-shadow: 0 0 25px rgba(233, 196, 106, 0.2);
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+/* Нижняя панель управления ведущего */
+.secrets-control-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--moss);
+}
+
+.input-group-full input {
+    width: 100%;
+    background: var(--deep-forest);
+    border: 1px solid var(--moss);
+    color: var(--text-light);
+    padding: 15px 20px;
+    font-family: inherit;
+    font-size: 20px;
+    border-radius: 6px;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+.input-group-full input:focus {
+    border-color: var(--chanterelle);
+}
+
+.secrets-action-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Нормальные универсальные классы кнопок */
+.btn-forest {
+    flex: 1;
+    border: none;
+    padding: 16px;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: transform 0.1s, filter 0.2s;
+}
+
+.btn-primary {
+    background: var(--foliage);
+    color: var(--text-light);
+    border-bottom: 4px solid var(--moss);
+}
+
+.btn-secondary {
+    background: var(--white-mushroom);
+    color: #2e2721;
+    border-bottom: 4px solid #b58253;
+}
+
+.btn-forest:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+}
+
+.btn-forest:active {
+    transform: translateY(2px);
+}
+/* Оформлення поля вводу з кнопочкою-оком */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    padding-right: 60px; /* Залишаємо місце для ока, щоб текст не залазив на нього */
+}
+
+.toggle-eye-btn {
+    position: absolute;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    opacity: 0.5;
+    user-select: none;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.toggle-eye-btn:hover {
+    transform: scale(1.1);
+}

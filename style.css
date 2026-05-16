@@ -57,3 +57,64 @@ a{
     background-position: center;
     padding: 20px;
 }
+/* Значок питання */
+.help-trigger {
+    background: transparent;
+    color: var(--white-mushroom);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: help;
+    border: 2px dashed var(--white-mushroom);
+    transition: 0.3s;
+}
+
+.help-trigger:hover {
+    background: var(--foliage);
+    color: var(--text-light);
+    box-shadow: 0 0 15px var(--foliage);
+}
+
+/* Спливаюча підказка */
+.help-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    width: 280px;
+    background: #2e2721;
+    color: var(--text-light);
+    text-align: left;
+    border-radius: 8px;
+    border: 1px solid var(--white-mushroom);
+    padding: 20px;
+    position: absolute;
+    right: 80px;
+    top: 30px;
+    z-index: 10;
+    box-shadow: -5px 5px 20px rgba(0,0,0,0.7);
+    transition: opacity 0.3s ease, visibility 0.3s;
+    pointer-events: none;
+}
+
+.help-tooltip h3 {
+    margin-top: 0;
+    color: var(--chanterelle);
+    font-size: 16px;
+    border-bottom: 1px solid var(--moss);
+    padding-bottom: 5px;
+}
+
+.help-tooltip p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 8px 0;
+}
+
+.help-trigger:hover .help-tooltip {
+    visibility: visible;
+    opacity: 1;
+}

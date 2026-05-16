@@ -19,7 +19,6 @@ main {
     justify-content: center;
     align-items: center;
     padding: 40px;
-    margin: 0 20%;
 }
 
 .word {
@@ -195,18 +194,15 @@ button:active { transform: translateY(2px); }
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(28px, 4.5vw, 65px); /* Адаптивный огромный размер букв */
+    font-size: clamp(28px, 4.5vw, 45px); /* Адаптивный огромный размер букв */
     color: var(--chanterelle);
     font-weight: 700;
     text-align: center;
     word-break: break-all;
     line-height: 1.6;
     letter-spacing: 2px;
-    padding: 40px;
     text-shadow: 0 0 25px rgba(233, 196, 106, 0.2);
-    background: rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-    margin-bottom: 40px;
 }
 
 /* Нижняя панель управления ведущего */

@@ -97,3 +97,91 @@ input[name="level"]:checked + label {
     color: #2e2721;
     border-color: #d4a373;
 }
+/* Небольшие ноутбуки */
+@media (max-width: 1366px) {
+
+    .game-main {
+        padding: 25px;
+    }
+
+    .game-settings {
+        width: 240px;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .word {
+        margin-bottom: 35px;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+/* Очень низкие экраны */
+@media (max-height: 800px) {
+
+    .game-main {
+        justify-content: center;
+    }
+
+    .word {
+        font-size: clamp(36px, 6vw, 72px);
+        margin-bottom: 25px;
+    }
+
+    .game-settings {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .options-group label {
+        padding: 8px 12px;
+    }
+}
+
+/* Планшеты и маленькие ноуты */
+@media (max-width: 1024px) {
+
+    .game-settings {
+        width: 220px;
+    }
+
+    .word {
+        font-size: clamp(32px, 7vw, 64px);
+    }
+
+    .buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Совсем узкие экраны */
+@media (max-width: 768px) {
+
+    .game-container {
+        flex-direction: column;
+    }
+
+    .game-settings {
+        width: 100%;
+        align-items: center;
+        padding-top: 0;
+    }
+
+    .setting-section {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .game-main {
+        padding-bottom: 15px;
+    }
+
+    .word {
+        margin-top: 40px;
+    }
+}

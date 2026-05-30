@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { title: "Плутанина", url: "snarl.html" },
         { title: "Абревіатури", url: "abbs.html" },
         {title: "Загадки омуту", url: "mysteries.html"},
+        { title: "Вгадайка", url: "guess.html" },
         { title: "Ягідний бум", url: "bum.html" },
         { title: "Таємниці хащі", url: "secrets.html" },
         { title: "Жаб'яче бажання", url: "wish.html" },

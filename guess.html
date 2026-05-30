@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkForest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="guess.css">
+</head>
+<body>
+    <header></header>
+
+    <main>
+        <div class="help-trigger guess-help">?
+            <div class="help-tooltip">
+                <h3>Правила гри:</h3>
+                <p>Ведучий загадує слово або обирає випадкове з теми. Гравці називають літери, а ведучий натискає їх на клавіатурі.</p>
+                <p>Правильні літери відкриваються у слові, неправильні закреслюються. Перемога настає, коли відкриті всі літери.</p>
+            </div>
+        </div>
+
+        <section class="guess-layout">
+            <div class="guess-stage">
+                <div class="round-info">
+                    <span id="theme-name">Тема: Ліс</span>
+                    <span id="miss-count">Помилок: 0</span>
+                </div>
+
+                <div id="masked-word" class="masked-word" aria-live="polite"></div>
+                <div id="round-message" class="round-message">Оберіть тему й почніть раунд</div>
+
+                <div id="letter-board" class="letter-board" aria-label="Кнопки з літерами"></div>
+            </div>
+
+            <aside class="guess-settings">
+                <div class="settings-block">
+                    <div class="settings-title">Тема слів</div>
+                    <div id="theme-options" class="theme-options"></div>
+                </div>
+
+                <div class="settings-block">
+                    <label class="settings-title" for="custom-word">Своє слово</label>
+                    <input id="custom-word" type="text" placeholder="наприклад: ягода" autocomplete="off">
+                    <button id="start-custom" class="control-button secondary">Загадати слово</button>
+                    <button id="random-word" class="control-button primary">Випадкове слово</button>
+                    <button id="reveal-word" class="control-button danger">Показати відповідь</button>
+                </div>
+
+                <div class="settings-block controls">
+                    
+                </div>
+
+                <div class="settings-block">
+                    <div class="settings-title">Неправильні літери</div>
+                    <div id="missed-letters" class="missed-letters">-</div>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="guess.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>

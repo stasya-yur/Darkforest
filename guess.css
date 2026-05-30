@@ -1,0 +1,304 @@
+main {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 18% 20%, rgba(233, 196, 106, 0.12), transparent 28%),
+        radial-gradient(circle at 82% 78%, rgba(58, 58, 94, 0.24), transparent 30%),
+        linear-gradient(135deg, var(--deep-forest), var(--swamp) 58%, #202a23);
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.guess-help {
+    position: fixed;
+    top: 2%;
+    right: 36px;
+    z-index: 4;
+}
+
+.guess-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    width: 100%;
+}
+
+.guess-stage {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    padding: 56px;
+}
+
+.round-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    color: var(--text-light);
+    opacity: 0.78;
+    font-size: 16px;
+}
+
+.round-info span {
+    border: 1px solid rgba(212, 163, 115, 0.45);
+    background: rgba(0, 0, 0, 0.18);
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.masked-word {
+    min-height: 118px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(8px, 1.4vw, 18px);
+    max-width: min(980px, 100%);
+    color: var(--chanterelle);
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 22px rgba(233, 196, 106, 0.18);
+}
+
+.word-letter {
+    min-width: clamp(34px, 5vw, 68px);
+    height: clamp(52px, 7vw, 86px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid var(--white-mushroom);
+    font-size: clamp(38px, 6.2vw, 78px);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.word-space {
+    width: clamp(24px, 3vw, 46px);
+    height: clamp(52px, 7vw, 86px);
+}
+
+.round-message {
+    min-height: 28px;
+    color: var(--text-light);
+    font-size: 18px;
+    text-align: center;
+}
+
+.round-message.win {
+    color: var(--chanterelle);
+}
+
+.round-message.warning {
+    color: var(--white-mushroom);
+}
+
+.letter-board {
+    width: min(860px, 100%);
+    display: grid;
+    grid-template-columns: repeat(11, minmax(42px, 1fr));
+    gap: 8px;
+}
+
+.letter-button {
+    aspect-ratio: 1;
+    border: 1px solid rgba(212, 163, 115, 0.42);
+    border-radius: 6px;
+    background: rgba(27, 38, 27, 0.84);
+    color: var(--text-light);
+    font-family: inherit;
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s, filter 0.15s, border-color 0.15s;
+}
+
+.letter-button:hover:not(:disabled) {
+    filter: brightness(1.18);
+    border-color: var(--chanterelle);
+    transform: translateY(-2px);
+}
+
+.letter-button:disabled {
+    cursor: default;
+}
+
+.letter-button.correct {
+    background: var(--foliage);
+    color: white;
+    border-color: var(--chanterelle);
+}
+
+.letter-button.wrong {
+    position: relative;
+    color: rgba(241, 241, 230, 0.5);
+    background: rgba(164, 36, 36, 0.26);
+    border-color: rgba(164, 36, 36, 0.7);
+}
+
+.letter-button.wrong::after {
+    content: "";
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    top: 50%;
+    border-top: 3px solid var(--fly-agaric);
+    transform: rotate(-18deg);
+}
+
+.guess-settings {
+    border-left: 1px solid rgba(212, 163, 115, 0.32);
+    background: rgba(0, 0, 0, 0.22);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow-y: auto;
+}
+
+.settings-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.settings-title {
+    color: var(--chanterelle);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.theme-options {
+    display: grid;
+    gap: 8px;
+}
+
+.theme-option input {
+    display: none;
+}
+
+.theme-option label {
+    display: block;
+    padding: 10px 12px;
+    border: 1px solid var(--moss);
+    border-radius: 6px;
+    background: rgba(45, 58, 45, 0.75);
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.theme-option label:hover {
+    border-color: var(--chanterelle);
+}
+
+.theme-option input:checked + label {
+    background: var(--white-mushroom);
+    color: #2e2721;
+    border-color: var(--chanterelle);
+}
+
+#custom-word {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--moss);
+    border-radius: 6px;
+    background: rgba(27, 38, 27, 0.9);
+    color: var(--text-light);
+    padding: 13px 14px;
+    font-family: inherit;
+    font-size: 17px;
+    outline: none;
+}
+
+#custom-word:focus {
+    border-color: var(--chanterelle);
+}
+
+.control-button {
+    border: none;
+    border-radius: 6px;
+    color: var(--text-light);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 13px 14px;
+    text-transform: uppercase;
+    transition: transform 0.15s, filter 0.15s;
+}
+
+.control-button:hover {
+    filter: brightness(1.16);
+    transform: translateY(-2px);
+}
+
+.control-button.primary {
+    background: var(--foliage);
+}
+
+.control-button.secondary {
+    background: var(--blueberry);
+}
+
+.control-button.danger {
+    background: transparent;
+    border: 1px dashed var(--fly-agaric);
+    color: #f0b0a8;
+}
+
+.controls {
+    margin-top: auto;
+}
+
+.missed-letters {
+    min-height: 34px;
+    color: #f0b0a8;
+    font-size: 24px;
+    letter-spacing: 6px;
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+}
+
+@media (max-width: 1100px) {
+    .guess-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .guess-settings {
+        border-left: none;
+        border-top: 1px solid rgba(212, 163, 115, 0.32);
+        display: grid;
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+
+    .controls {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 760px) {
+    main {
+        overflow: auto;
+    }
+
+    .guess-stage {
+        padding: 78px 18px 28px;
+        gap: 20px;
+    }
+
+    .letter-board {
+        grid-template-columns: repeat(6, minmax(40px, 1fr));
+    }
+
+    .guess-settings {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .guess-help {
+        right: 18px;
+    }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Словолісся | DarkForest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="slovolissia.css">
+</head>
+<body>
+    <header></header>
+
+    <main>
+        <div class="help-trigger slovo-help">?
+            <div class="help-tooltip">
+                <h3>Правила гри:</h3>
+                <p>Вгадай заховане слово за шість спроб. Після кожної спроби клітинки підкажуть, наскільки близько ти підібрався.</p>
+                <p>Зелена літера стоїть на своєму місці, жовта є у слові в іншому місці, сіра у слові не трапляється.</p>
+            </div>
+        </div>
+
+        <section class="slovo-layout" aria-label="Гра Словолісся">
+            <div class="slovo-stage">
+                <div id="word-grid" class="word-grid" aria-label="Ігрове поле"></div>
+                <div id="game-message" class="game-message" aria-live="polite">Введи слово з 5 літер</div>
+
+                <div id="slovo-keyboard" class="slovo-keyboard" aria-label="Клавіатура"></div>
+            </div>
+
+            <aside class="slovo-panel">
+
+                <div class="panel-block">
+                    <button id="new-round" class="slovo-control primary" type="button">Нове слово</button>
+                    <button id="show-answer" class="slovo-control ghost" type="button">Показати відповідь</button>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="slovolissia.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>

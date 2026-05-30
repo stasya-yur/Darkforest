@@ -1,6 +1,6 @@
 /* Основна ігрова зона */
 main {
-    background: radial-gradient(circle at center, var(--swamp) 0%, var(--deep-forest) 100%);
+    
     display: flex;
     height: 100vh;
     overflow: hidden;

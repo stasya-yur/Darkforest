@@ -1,6 +1,6 @@
 /* Основная игровая зона */
 main {
-    background: radial-gradient(circle at center, var(--swamp) 0%, var(--deep-forest) 100%);
+    
     display: flex;
 }
 

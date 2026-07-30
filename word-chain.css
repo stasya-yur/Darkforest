@@ -1,0 +1,192 @@
+:root {
+    --panel-bg: rgba(0, 0, 0, 0.22);
+    --panel-border: rgba(113, 131, 85, 0.35);
+}
+
+.word-chain-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.8fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.word-chain-stage,
+.word-chain-settings {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.word-chain-stage {
+    display: flex;
+    flex-direction: column;
+}
+
+.round-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(233, 196, 106, 0.12);
+    color: var(--chanterelle);
+    font-weight: 700;
+}
+
+.current-word-card {
+    background: linear-gradient(135deg, rgba(29, 42, 29, 0.95), rgba(74, 93, 35, 0.9));
+    border: 1px solid rgba(233, 196, 106, 0.25);
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
+
+.current-word-card h1 {
+    margin: 0 0 8px;
+    font-size: 1.5rem;
+}
+
+.current-word-card p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.letter-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.letter-row {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.letter-label {
+    background: rgba(233, 196, 106, 0.16);
+    border: 1px solid rgba(233, 196, 106, 0.35);
+    border-radius: 6px;
+    padding: 11px 0;
+    text-align: center;
+    font-weight: 700;
+    color: var(--chanterelle);
+}
+
+.letter-input,
+.custom-word-input {
+    padding: 12px 14px;
+    border: 1px solid rgba(113, 131, 85, 0.4);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    font-family: inherit;
+    font-size: 1rem;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+.btns-row-container{
+    display: flex;
+    gap: 10px;
+}
+.letter-input:focus,
+.custom-word-input:focus {
+    outline: none;
+    border-color: var(--chanterelle);
+    box-shadow: 0 0 0 2px rgba(233, 196, 106, 0.2);
+}
+
+.custom-word-input::placeholder {
+    color: rgba(241, 241, 230, 0.6);
+}
+
+.word-input-shell {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.action-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.control-button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.control-button:hover {
+    filter: brightness(70%);
+}
+
+.control-button.primary {
+    background: var(--chanterelle);
+    color: var(--deep-forest);
+    font-weight: 700;
+}
+
+.control-button.secondary {
+    background: var(--moss);
+    color: var(--text-light);
+}
+
+.control-button.danger {
+    background: var(--fly-agaric);
+    color: var(--text-light);
+}
+
+.settings-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.settings-block .control-button {
+    width: 150px;
+}
+
+.settings-title {
+    font-weight: 700;
+    color: var(--chanterelle);
+}
+
+.game-message {
+    margin-top: 14px;
+    line-height: 1.6;
+    color: rgba(241, 241, 230, 0.9);
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 8px 6px;
+    border-bottom: 1px solid rgba(113, 131, 85, 0.25);
+    text-align: left;
+}
+
+.leaderboard-table th {
+    color: var(--chanterelle);
+}
+
+@media (max-width: 900px) {
+    .word-chain-layout {
+        grid-template-columns: 1fr;
+    }
+}

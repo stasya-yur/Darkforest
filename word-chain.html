@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ланцюжок слів — Темний Ліс</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="word-chain.css">
+</head>
+<body>
+    <header></header>
+
+    <main>
+        <div class="help-trigger" style="position: fixed; top: 2%; right: 400px; z-index: 20;">
+            ?
+            <div class="help-tooltip">
+                <h3>Правила гри:</h3>
+                <p>Оберіть слово або впишіть своє. Потім розбийте його на літери й придумайте слово до кожної літери.</p>
+                <p>Перевірка проходить за двома правилами: слово має починатися з потрібної літери, а всі відповіді мають бути різними в поточній спробі.</p>
+                <p>Для складних літер, як-от «ь», достатньо, щоб слово їх містило.</p>
+            </div>
+        </div>
+
+        <section class="word-chain-layout">
+            <div class="word-chain-stage">
+                <div class="round-info">
+                    <span id="word-target">Слово: —</span>
+                    <span id="timer">Час: 00:00</span>
+                </div>
+                <div class="settings-block">
+                    <label class="settings-title" for="custom-word">Своє слово</label>
+                    <div class="word-input-shell">
+                        <input id="custom-word" class="custom-word-input" type="text" placeholder="наприклад: КАВА" autocomplete="off">
+                    </div>
+                    <div class="btns-row-container">
+                        <button id="start-custom-word" class="control-button secondary">Застосувати слово</button>
+                        <button id="reset-game" class="control-button danger">Почати заново</button>
+                    </div>
+                </div>
+                <div id="letter-rows" class="letter-rows"></div>
+                <div class="action-row">
+                    <button id="check-answers" class="control-button primary">Перевірити</button>
+                    <button id="new-random-word" class="control-button secondary">Випадкове слово</button>
+                </div>
+
+                <p id="game-message" class="game-message">Поки що жодних відповідей не перевіряли.</p>
+            </div>
+
+            <aside class="word-chain-settings">
+                <div class="current-word-card">
+                    <h1>Ланцюжок слів</h1>
+                    <p id="word-description">Оберіть слово, щоб почати раунд. Можна використати випадковий варіант або вписати власне слово.</p>
+                </div>
+                <div class="settings-block">
+                    <div class="settings-title">Таблиця лідерів</div>
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Розгадане слово</th>
+                                <th>Час</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-body">
+                            <tr>
+                                <td colspan="4">Ще немає результатів.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="word-chain.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заміноване слово — Темний Ліс</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bomb-word.css">
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="help-trigger">
+            ?
+            <div class="help-tooltip">
+                <h3>Правила гри:</h3>
+                <p>Загадане слово приховано за шістьма твердженнями. Відкривайте їх по одному, поки не зможете вгадати слово.</p>
+                <p>Поки бомба не вибухнула, у вас є шанс відгадати слово. Будьте обережні - відріжете не той дріт - бомба вибухне!</p>
+            </div>
+        </div>
+
+        <section class="bomb-word-layout">
+            <div class="bomb-word-stage">
+                <div class="bomb-status">
+                    <span id="bomb-progress">Тверджень відкрито: 0/6</span>
+                    <span id="bomb-state">Стан: готово</span>
+                </div>
+
+                <div class="timer-row">
+                    <span class="timer-value" id="bomb-timer">10:00</span>
+                </div>
+
+                <div class="bomb-scene">
+                    <div class="bomb" id="bomb-visual">
+                        <img class="bomb-image" src="bomb/bomb.png" alt="Бомба">
+                        <img class="wire-image wire-red" src="bomb/red_wire.png" alt="Червоний дріт">
+                        <img class="wire-image wire-blue" src="bomb/blue_wire.png" alt="Синій дріт">
+                        <img class="wire-image wire-green" src="bomb/green_wire.png" alt="Зелений дріт">
+                        <img class="wire-image wire-yellow" src="bomb/yellow_wire.png" alt="Жовтий дріт">
+                        <img class="wire-image wire-purple" src="bomb/violet_wire.png" alt="Фіолетовий дріт">
+                    </div>
+                </div>
+                <div class="current-word-card">
+                    <h1>Заміноване слово</h1>
+                    <p id="bomb-description">Відкривайте твердження й намагайтеся вгадати слово до вибуху.</p>
+                </div>
+
+                <div class="answer-panel">
+                    <label class="settings-title" for="bomb-answer">Ваша версія слова</label>
+                    <input id="bomb-answer" class="bomb-input" type="text" placeholder="Наприклад: КАВА" autocomplete="off">
+                    <div class="btns-container">
+                    <button id="bomb-submit" class="control-button primary">Перевірити</button>
+                    <button id="bomb-next" class="control-button secondary">Наступне слово</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="bomb-word-side">
+                <div class="clues-list" id="clues-list"></div>
+                <div class="difficulty-panel">
+                    <div class="difficulty-title">Рівень гри</div>
+                    <div class="difficulty-buttons">
+                        <button type="button" class="difficulty-button is-active" data-difficulty="easy">Легко</button>
+                        <button type="button" class="difficulty-button" data-difficulty="medium">Середній</button>
+                        <button type="button" class="difficulty-button" data-difficulty="hard">Складно</button>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="bomb-word.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>

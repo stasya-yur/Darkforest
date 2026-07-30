@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кубік рефлексії — Темний Ліс</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header></header>
+    <main>
+        <section class="reflection-page">
+            <div class="home-hero">
+                <p class="hero-kicker">Рефлексія</p>
+                <h1>Кубік рефлексії</h1>
+                <p class="hero-text">Кожен учасник кидає кубик і ділиться тим, що сьогодні для нього було важливим, цікавим або складним. Це простий спосіб завершити спільну активність з уважністю до себе й один одного.</p>
+            </div>
+            <div class="reflection-panel">
+                <div class="cube-scene">
+                    <div class="cube" id="reflection-cube">
+                        <div class="face face-front">Я можу похвалити...</div>
+                        <div class="face face-back">Мені було цікаво...</div>
+                        <div class="face face-right">У мене вийшло...</div>
+                        <div class="face face-left">Я хотіла(-в) би зробити інакше...</div>
+                        <div class="face face-top">Я дізналась(-вся)...</div>
+                        <div class="face face-bottom">Мені було важко...</div>
+                    </div>
+                </div>
+                <div class="reflection-controls">
+                    <button class="random-button" id="roll-cube-btn" type="button">Кинути кубик</button>
+                    <p id="cube-result">Поки що кубик не кинуто. Оберіть один із фразових виявів і поділіться своїм відгуком.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="menu.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cube = document.getElementById("reflection-cube");
+            const result = document.getElementById("cube-result");
+            const button = document.getElementById("roll-cube-btn");
+            const phrases = [
+                "я можу похвалити...",
+                "мені було цікаво",
+                "у мене вийшло",
+                "я хотіла(-в) би зробити інакше",
+                "я дізналась(-вся)",
+                "мені було важко"
+            ];
+
+            const rotations = [
+                { x: 0, y: 0 },
+                { x: 0, y: 180 },
+                { x: 0, y: 90 },
+                { x: 0, y: -90 },
+                { x: -90, y: 0 },
+                { x: 90, y: 0 }
+            ];
+
+            button.addEventListener("click", () => {
+                const index = Math.floor(Math.random() * phrases.length);
+                const rotation = rotations[index];
+                cube.style.transform = `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`;
+                result.textContent = `Випало: ${phrases[index]}`;
+            });
+        });
+    </script>
+</body>
+</html>

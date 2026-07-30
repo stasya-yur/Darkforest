@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const header = document.querySelector("header");
     const main = document.querySelector("main");
-    const main = document.querySelector("main");
     const currentPath = window.location.pathname.split("/").pop() || "index.html";
 
     if (header) {

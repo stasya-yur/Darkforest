@@ -13,7 +13,7 @@
 
 body {
     display: grid;
-    grid-template-columns: 250px 1fr; /* Фиксированная ширина боковой панели */
+    grid-template-columns: 250px 1fr;
     background: var(--deep-forest);
     color: var(--text-light);
     font-family: "Iosevka Charon", monospace;
@@ -23,6 +23,7 @@ body {
 
 main {
     padding: 24px 30px;
+    min-height: 100vh;
 }
 
 .home-shell {
@@ -335,8 +336,13 @@ body.modal-open {
     }
 
     header {
+        position: relative;      /* ✅ на мобільних прибираємо sticky */
+        height: auto;
         border-right: none;
         border-bottom: 2px solid var(--moss);
+        overflow-y: visible;
+        max-height: 300px;       /* ✅ обмежуємо висоту на мобільних */
+        overflow-y: auto;        /* ✅ включаємо прокрутку */
     }
 
     .reflection-panel {
@@ -349,7 +355,30 @@ header {
     background-color: rgba(0, 0, 0, 0.3);
     border-right: 2px solid var(--moss);
     padding: 15px 0 0;
-    overflow: auto
+    overflow-y: auto;           /* ✅ вертикальна прокрутка */
+    overflow-x: hidden;         /* ✅ без горизонтальної */
+    height: 100vh;              /* ✅ на всю висоту */
+    position: sticky;           /* ✅ залишається видимим */
+    top: 0;                     /* ✅ прилипає до верху */
+    align-self: start;          /* ✅ не розтягується */
+}
+
+/* Стилізація скролбару для сайдбару */
+header::-webkit-scrollbar {
+    width: 4px;
+}
+
+header::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+header::-webkit-scrollbar-thumb {
+    background: var(--moss);
+    border-radius: 4px;
+}
+
+header::-webkit-scrollbar-thumb:hover {
+    background: var(--chanterelle);
 }
 
 .header-title-link {

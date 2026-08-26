@@ -70,13 +70,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     { title: "Gartic Phone", file: "https://garticphone.com", description: "Спільне малювання для компанії.", external: true, new: false },
                     { title: "Make It Meme", file: "https://makeitmeme.com", description: "Створи мем за пару хвилин.", external: true, new: false },
                     { title: "Smash Carts", file: "https://smashkarts.io", description: "Аркадні бійки з друзями.", external: true, new: false },
-                    { title: "Mushrooms", url: "https://onrender.com", description: "Пошук слів за смисловою близкістю.", external: true, new: true }
+                    { title: "Mushroooms", url: "https://onrender.com", description: "Пошук слів за смисловою близкістю.", external: true, new: true }
                 ]
             },
             {
                 isUseful: true, // Позначка нової категорії
                 games: [
-                    { title: "Кубік рефлексії", file: "reflection-cube.html", description: "Кидай кубик, обирай питання для рефлексії й діліться тим, що сьогодні було важливим." }
+                    { title: "Кубік рефлексії", file: "reflection-cube.html", description: "Кидай кубик, обирай питання для рефлексії й діліться тим, що сьогодні було важливим." },
+                    { title: "Генерація відео", url: "https://upsampler.com/free-video-generator-no-signup", description: "Генерація відео без рестрації.",external: true, }
                 ]
             }
         ];
@@ -97,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <article class="game-card ${group.isUseful ? 'useful-card' : ''} ${game.new ? 'new-game': ''}">
                             <h2>${game.title}</h2>
                             <p>${game.description}</p>
-                            <button class="card-button" type="button" data-title="${game.title}" data-description="${game.description}" data-file="${game.file}" data-external="${game.external ? "true" : "false"}">
+                            <button class="card-button" type="button" data-title="${game.title}" data-description="${game.description}" data-file="${game.file || game.url || '#'}" data-external="${game.external ? "true" : "false"}">
                                 Детальніше
                             </button>
                         </article>
@@ -149,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const openModal = (game) => {
             modalTitle.textContent = game.title;
             modalDescription.textContent = game.description;
-            modalLink.href = game.file;
+            modalLink.href = game.file || game.url || '#';
             modalLink.textContent = `Відкрити ${game.title}`;
             modalLink.target = game.external ? "_blank" : "_self";
             modal.hidden = false;

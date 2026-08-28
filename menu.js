@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     { title: "Gartic Phone", file: "https://garticphone.com", description: "Спільне малювання для компанії.", external: true, new: false },
                     { title: "Make It Meme", file: "https://makeitmeme.com", description: "Створи мем за пару хвилин.", external: true, new: false },
                     { title: "Smash Carts", file: "https://smashkarts.io", description: "Аркадні бійки з друзями.", external: true, new: false },
-                    { title: "Mushroooms", url: "https://onrender.com", description: "Пошук слів за смисловою близкістю.", external: true, new: true }
+                    { title: "PawGuess", url: "https://streampaw.org/pawguess/", description: "Вгадуй слова за їх близкістю.", external: true, new: true }
                 ]
             },
             {

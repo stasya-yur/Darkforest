@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 { title: "Gartic Phone", url: "https://garticphone.com", external: true },
                 { title: "Smash Carts", url: "https://smashkarts.io", external: true },
                 { title: "Make It Meme", url: "https://makeitmeme.com", external: true },
-                { title: "Mushrooms", url: "https://onrender.com", external: true }
+                { title: "Mushrooms", url: "https://mushrooom-game.onrender.com", external: true }
             ],
             [
                 { title: "Кубік рефлексії", url: "reflection-cube.html" }
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     { title: "Gartic Phone", file: "https://garticphone.com", description: "Спільне малювання для компанії.", external: true, new: false },
                     { title: "Make It Meme", file: "https://makeitmeme.com", description: "Створи мем за пару хвилин.", external: true, new: false },
                     { title: "Smash Carts", file: "https://smashkarts.io", description: "Аркадні бійки з друзями.", external: true, new: false },
-                    { title: "PawGuess", url: "https://streampaw.org/pawguess/", description: "Вгадуй слова за їх близкістю.", external: true, new: true }
+                    { title: "Mushrooom", url: "https://mushrooom-game.onrender.com", description: "Вгадуй слова за їх близкістю.", external: true, new: true }
                 ]
             },
             {

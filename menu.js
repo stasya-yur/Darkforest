@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     { title: "Ягідний бум", file: "bum.html", description: "Рахуйте в колі, замінюючи числа на кумедні кодові слова й не давайте себе спіймати.", new: false  },
                     { title: "Таємниці хащі", file: "secrets.html", description: "Приховайте фразу в шумовому тексті й нехай гравці розгадують її серед хащі літер.", new: false  },
                     { title: "Жаб'яче бажання", file: "wish.html", description: "Генеруйте абсурдні бажання й ставте гравців перед нелегким вибором на час.", new: false  },
-                    { title: "Ланцюжок слів", file: "word-chain.html", description: "Розбийте слово на літери й придумайте до кожної літери... слово.", new: true  },
-                    { title: "Заміноване слово", file: "bomb-word.html", description: "Відкривайте твердження одну за одною, намагайтеся вгадати слово й не дайте бомбі вибухнути.", new: true  }
+                    { title: "Ланцюжок слів", file: "word-chain.html", description: "Розбийте слово на літери й придумайте до кожної літери... слово.", new: false  },
+                    { title: "Заміноване слово", file: "bomb-word.html", description: "Відкривайте твердження одну за одною, намагайтеся вгадати слово й не дайте бомбі вибухнути.", new: false  }
                 ]
             },
             {
@@ -68,16 +68,20 @@ document.addEventListener("DOMContentLoaded", function () {
                     { title: "Kahoot!", file: "https://kahoot.com", description: "Бери вікторини й запускай їх у швидкому форматі.", external: true, new: false },
                     { title: "Gartic.io", file: "https://gartic.io", description: "Малюй, відгадуй та смійтеся з результатами.", external: true, new: false },
                     { title: "Gartic Phone", file: "https://garticphone.com", description: "Спільне малювання для компанії.", external: true, new: false },
+                    {title: "Gartic Rush", file: "https://garticrush.com", description: "Малюй, але в тебе лише 7 секунд.", external: true, new: true },
                     { title: "Make It Meme", file: "https://makeitmeme.com", description: "Створи мем за пару хвилин.", external: true, new: false },
                     { title: "Smash Carts", file: "https://smashkarts.io", description: "Аркадні бійки з друзями.", external: true, new: false },
-                    { title: "Mushrooom", url: "https://mushrooom-game.onrender.com", description: "Вгадуй слова за їх близкістю.", external: true, new: true }
+                    {title: "Obby Roads", file: "https://obbyroads.io", description: "Перегони з перешкодами.", external: true, new: true },
+                    {title: "Skribbl.io", file: "https://skribbl.io", description: "Малюй і відгадуй слова.", external: true, new: true },
+                    {title: "Pixoguess", file: "https://pixoguess.com", description: "Потрібно вгадати пікселізовану картинку.", external: true, new: true },
+                    { title: "Mushrooom", url: "https://mushrooom-game.onrender.com", description: "Вгадуй слова за їх близкістю.", external: true, new: false }
                 ]
             },
             {
                 isUseful: true, // Позначка нової категорії
                 games: [
                     { title: "Кубік рефлексії", file: "reflection-cube.html", description: "Кидай кубик, обирай питання для рефлексії й діліться тим, що сьогодні було важливим." },
-                    { title: "Генерація відео", url: "https://upsampler.com/free-video-generator-no-signup", description: "Генерація відео без рестрації.",external: true, }
+                    { title: "Генерація відео", url: "https://upsampler.com/free-video-generator-no-signup", description: "Генерація відео без рестрації.",external: false, }
                 ]
             }
         ];

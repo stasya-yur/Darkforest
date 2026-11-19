@@ -81,7 +81,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 isUseful: true, // Позначка нової категорії
                 games: [
                     { title: "Кубік рефлексії", file: "reflection-cube.html", description: "Кидай кубик, обирай питання для рефлексії й діліться тим, що сьогодні було важливим." },
-                    { title: "Генерація відео", url: "https://upsampler.com/free-video-generator-no-signup", description: "Генерація відео без рестрації.",external: false, }
+                    { title: "Генерація відео", url: "https://upsampler.com/free-video-generator-no-signup", description: "Генерація відео без рестрації.",external: false, },
+                    { title: "CSS Grid Generator", url: "https://grid.layoutit.com/", description: "Помічник по створенню css-таблиць.",external: false, },
+                    { title: "CSS Gradient Generator", url: "https://cssgradient.io/", description: "Помічник по створенню css-градієнтів.",external: false, },
+                    { title: "CSS Помічник", url: "https://cssgenerator.org/", description: "Тінь, градієнти, курсори, фільтри, інше.",external: false, },
+                    {title: "Webcode Tools", url: "https://webcode.tools/", description: "Підказка по web",external: false, },
+                    {title: "Bootstrap Helper", url: "https://stasya-yur.github.io/bootstrap-learning-helper/", description: "Помічник з навчання Bootstrap",external: false, new: true },
                 ]
             }
         ];
